@@ -152,6 +152,7 @@ bot.api.setMyCommands([
       command: "effect",
       description: "Apply text effects on the text. (usage: /effect [text])",
     },
+    { command: "potato", description: "Receive a potato"}
   ]);
 
 const introductionMessage = `Hello! I'm a Telegram bot.
@@ -159,7 +160,8 @@ I'm powered by Cyclic, the next-generation serverless computing platform.
 
 <b>Commands</b>
 /yo - Be greeted by me
-/effect [text] - Show a keyboard to apply text effects to [text]`;
+/effect [text] - Show a keyboard to apply text effects to [text]
+/potato - receive a potato`;
 
 const aboutUrlKeyboard = new InlineKeyboard().url(
     "Host your own bot for free.",
@@ -175,6 +177,7 @@ const aboutUrlKeyboard = new InlineKeyboard().url(
 
 // Handle the /yo command to greet the user
 bot.command("yo", (ctx) => ctx.reply(`Yo ${ctx.from?.username}`));
+bot.command("potato", (ctx) => ctx.reply('hey, here is a potato 🥔'))
 
 bot.command("start", replyWithIntro);  
 bot.on("message", replyWithIntro);
